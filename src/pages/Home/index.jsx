@@ -11,6 +11,10 @@ const Home = () => {
   };
   const searchHandler = async (e) => {
     e.preventDefault();
+    const coins = await allCoin.filter((item) =>
+      item.name.toLowerCase().includes(input.toLocaleLowerCase())
+    );
+    setDisplayCoin(coins);
   };
 
   useEffect(() => {
