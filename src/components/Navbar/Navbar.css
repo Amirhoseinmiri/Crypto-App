@@ -66,4 +66,7 @@
   .navbar ul {
     display: none;
   }
+  .navbar button img {
+    display: none;
+  }
 }

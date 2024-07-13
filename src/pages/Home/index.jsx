@@ -4,6 +4,14 @@ import "./Home.css";
 const Home = () => {
   const { allCoin, currency } = useContext(CoinContext);
   const [displayCoin, setDisplayCoin] = useState([]);
+  const [input, setInput] = useState("");
+
+  const inputHandler = (event) => {
+    setInput(event.target.value);
+  };
+  const searchHandler = async (e) => {
+    e.preventDefault();
+  };
 
   useEffect(() => {
     setDisplayCoin(allCoin);
@@ -19,8 +27,14 @@ const Home = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam
           distinctio voluptates saepe perferendis quam officiis?
         </p>
-        <form>
-          <input type="text" placeholder="Search crypto..." />
+        <form onSubmit={searchHandler}>
+          <input
+            value={input}
+            onChange={inputHandler}
+            required
+            type="text"
+            placeholder="Search crypto..."
+          />
           <button type="submit">Search</button>
         </form>
       </div>
